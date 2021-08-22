@@ -15,19 +15,7 @@
       <div class="card">
         <div class="card-header">
           <h2>Generate a Password</h2>
-          <div id="promptone" style="display:none">
-          <h3>How Many Characters?</h3>
-          <input type="text" id='passlength' style="height:40px">
-          <button id="next" class="btn">Next</button>
-        </div>
-          <div id="prompttwo" style="display:none">
-          <h3>Which Character Sets?</h3>
-          Uppercase<input type="checkbox" id='upper'>
-          Lowercase<input type="checkbox" id='lower'>
-          Numbers<input type="checkbox" id="numnum">
-          Symbols<input type="checkbox" id="special">
-          <button id="finish" class="btn">Next</button>
-        </div>
+
         <div class="card-body">
           <textarea
             readonly
@@ -35,6 +23,19 @@
             placeholder="Your Secure Password"
             aria-label="Generated Password"
           ></textarea>
+        </div>
+        <div id="promptone" style="display:none">
+          <h3>How Many Characters?</h3>
+          <input type="text" id='passlength' style="height:40px">
+          <button id="next" class="btn">Next</button>
+        </div>
+          <div id="prompttwo" style="display:none">
+          <h3>Which Character Sets?</h3>
+          <p>Uppercase</p><input type="checkbox" id='upper'>
+          Lowercase<input type="checkbox" id='lower'>
+          Numbers<input type="checkbox" id="numnum">
+          Symbols<input type="checkbox" id="special">
+          <button id="finish" class="btn">Finish</button>
         </div>
         <div class="card-footer">
           <button id="generate" class="btn">Generate Password</button>

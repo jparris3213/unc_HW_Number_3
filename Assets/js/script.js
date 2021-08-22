@@ -13,6 +13,7 @@ document.querySelector("#password").value = "Click Generate Password to Begin Pr
 
 function generatePassword() {
   firstquestion.setAttribute("style","display:flex");
+  generateBtn.setAttribute("style","display:none")
   
 
 };
@@ -46,14 +47,13 @@ finishupbtn.addEventListener("click", function(){
   var lowercaseletters = "abcdefghijklmnopqrstuvwxyz";
   var numbers= "0123456789";
   var symbolchoices = " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+  passwordbucket = [];
 
   if (document.getElementById("upper").checked) {
-    a = uppercaseletters.split("")
-    passwordbucket.push(a);
+    passwordbucket.push(uppercaseletters);
   } else {};
-  if (document.getElementById("lower").checked) {
-    b = lowercaseletters.split("");
-    passwordbucket.push(b);
+  if (document.getElementById("lower").checked) {;
+    passwordbucket.push(lowercaseletters);
   } else {};
   if (document.getElementById("numnum").checked) {
     passwordbucket.push(numbers);
@@ -63,16 +63,17 @@ finishupbtn.addEventListener("click", function(){
     passwordbucket.push(symbolchoices);
   } else {};
 
-  //console.log(passwordbucket);
-  randompassword();
+  //console.log(passwordbucket.join(""));
+  randompassword(passwordbucket.join(""));
+  finishupbtn.innerHTML = "Re-Generate";
 
 
 })
 
   //generate actual password from passwordBucket array and return value
-function randompassword(){
+function randompassword(bucket){
   var length = localStorage.getItem("length");
-  var charlist = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+  var charlist = bucket;//"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
   var chararray = charlist.split("");
   var finalpass = [];
   console.log(chararray);

@@ -21,7 +21,6 @@ nextquestbtn.addEventListener("click", function(){
 
    var passwordText = document.querySelector("#password")
 
-   
    if (possiblelength < 8){
      passwordText.value = "Too Low";
    } else if(possiblelength > 128){

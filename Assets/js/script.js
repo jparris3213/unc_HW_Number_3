@@ -7,6 +7,7 @@ var secondquestion = document.querySelector("#prompttwo")
 var finishupbtn = document.querySelector("#finish");
 
 var passwordbucket = [];
+var passwordText = document.querySelector("#password")
 
 document.querySelector("#password").value = "Click Generate Password to Begin Process";
 
@@ -19,7 +20,7 @@ function generatePassword() {
 nextquestbtn.addEventListener("click", function(){
    var possiblelength = parseInt(passlength.value);
 
-   var passwordText = document.querySelector("#password")
+   
 
    if (possiblelength < 8){
      passwordText.value = "Too Low";
@@ -62,13 +63,27 @@ finishupbtn.addEventListener("click", function(){
     passwordbucket.push(symbolchoices);
   } else {};
 
-  console.log(passwordbucket);
+  //console.log(passwordbucket);
+  randompassword();
 
 
 })
 
   //generate actual password from passwordBucket array and return value
-
+function randompassword(){
+  var length = localStorage.getItem("length");
+  var charlist = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+  var chararray = charlist.split("");
+  var finalpass = [];
+  console.log(chararray);
+  
+  for (var i = 0; i < length; i++) {
+    //console.log ("Is This your Card?" + chararray[i]);
+    randomletter = chararray[Math.floor(Math.random() * chararray.length)];
+    finalpass.push(randomletter);
+  }
+  passwordText.value = "Your New Password Is: " + finalpass.join("");
+}
 
 
 
